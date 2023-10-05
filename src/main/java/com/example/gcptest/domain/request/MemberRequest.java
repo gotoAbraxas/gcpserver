@@ -11,8 +11,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class MemberRequest {
 
-    String name;
-    String description;
+   private String name;
+   private String description;
 
     public Member toEntity(){
         return Member.builder().name(name).description(description).build();

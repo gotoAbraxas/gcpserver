@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Getter
-@Table(name = "user")
+@Table(name = "users") // 얘 user로 하면 안됨 예약어?
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor

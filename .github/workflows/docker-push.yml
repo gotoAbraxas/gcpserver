@@ -27,7 +27,7 @@ jobs:
       run: ./gradlew clean build
 
     - name: Build the Docker image
-      run: docker build -t testwoman/spring-test
+      run: docker build -t testwoman/spring-test .
     - name: Docker Login
       uses: docker/login-action@v3.0.0
       with:

@@ -49,5 +49,6 @@ jobs:
           #sudo su
           sudo docker stop ${{ secrets.REPOSITORY }}
           sudo docker rm ${{ secrets.REPOSITORY }}
+          sudo docker pull ${{ secrets.USERNAME }}/${{ secrets.REPOSITORY }}
           sudo docker run --name ${{ secrets.REPOSITORY }} -d -p 8080:8081 ${{ secrets.USERNAME }}/${{ secrets.REPOSITORY }}
         

@@ -30,6 +30,8 @@ jobs:
       run: docker build -t testwoman/spring-test .
     - name: Docker Login
       uses: docker/login-action@v3.0.0
+      env: 
+        DOCKER: ${{secrets.DOCKER}}
       with:
-        username: ${{secrets.DOCKER}}
-        password: ${{secrets.DOCKER}}
+        username: $DOCKER.USERNAME
+        password: $DOCKER.PASSWORD

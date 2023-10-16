@@ -1,0 +1,29 @@
+services:
+  my-mysql:
+    image: mysql:latest
+    container_name: my-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 1q2w3e4r
+      MYSQL_DATABASE: test
+    ports:
+      - 3307:3306
+#    volumes:
+#      - /tmp/mysql:/var/lib/mysql
+  back:
+#    image: testwoman/spring-test
+    build: .
+    environment:
+      DB_USER: root
+    ports:
+      - 8081:8081
+    depends_on:
+      my-mysql:
+        condition:  service_completed_successfully
+    restart: always
+
+networks:
+  test1:
+
+#volumes:
+#  back:
+#  my-mysql:

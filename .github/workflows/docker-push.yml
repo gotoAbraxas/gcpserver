@@ -31,8 +31,8 @@ jobs:
       uses: docker/login-action@v3.0.0
       
       with:
-        username: ${{ secrets.DOCKER_USERNAME }} #${{env.USERNAME}} 
-        password: ${{ secrets.DOCKER_PASSWORD }}
+        username: ${{ secrets.USERNAME }} #${{env.USERNAME}} 
+        password: ${{ secrets.PASSWORD }}
 
     - name: DOCKER push
       run: docker push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPOSITORY }}
@@ -46,8 +46,8 @@ jobs:
         username: ${{secrets.HOST_USERNAME}}
         key: ${{secrets.HOST_KEY}} 
         script:
-          sudo su
-          docker stop ${{ secrets.DOCKER_REPOSITORY }}
-          docker rm ${{ secrets.DOCKER_REPOSITORY }}
-          docker run --name ${{ secrets.DOCKER_REPOSITORY }} -d -p 8080:8081 ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPOSITORY }}
+          #sudo su
+          sudo docker stop ${{ secrets.DOCKER_REPOSITORY }}
+          sudo docker rm ${{ secrets.DOCKER_REPOSITORY }}
+          sudo docker run --name ${{ secrets.DOCKER_REPOSITORY }} -d -p 8080:8081 ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPOSITORY }}
         

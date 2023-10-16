@@ -33,5 +33,5 @@ jobs:
       env: 
         DOCKER: ${{secrets.DOCKER}}
       with:
-        username: $DOCKER.USERNAME
-        password: $DOCKER.PASSWORD
+        username: "$DOCKER.USERNAME"
+        password: "$DOCKER.PASSWORD"

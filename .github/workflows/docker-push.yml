@@ -7,11 +7,8 @@ on:
   #   branches: [ "main" ]
 
 jobs:
-  secrets:
-    environment: DOCKER
-    runs-on: ubuntu-latest
-
   build:
+    environment: DOCKER
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3

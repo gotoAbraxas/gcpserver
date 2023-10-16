@@ -17,7 +17,9 @@ jobs:
       uses: actions/setup-java@v3
       with:
         java-version: '17'
-        distribution: 'temurin'
+        distribution: 'temurin' 
+        #이건 중요하진 않지만 잘 생각해야함?? 빌드만 할거면 이거 말고 핫스폿? 이런거 쓸 수 있음..
+        
     - name: Permition
       run: chmod 744 gradlew
 
@@ -26,3 +28,8 @@ jobs:
 
     - name: Build the Docker image
       run: docker build . 
+    - name: Docker Login
+      uses: docker/login-action@v3.0.0
+      with:
+        username: das
+        password: gggg

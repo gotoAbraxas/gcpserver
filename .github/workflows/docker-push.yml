@@ -7,11 +7,9 @@ on:
   #   branches: [ "main" ]
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
-    env: ${{secrets.DOCKER}}
+    
 
     steps:
     - uses: actions/checkout@v3
@@ -34,5 +32,8 @@ jobs:
       uses: docker/login-action@v3.0.0
       
       with:
-        username:  ${{env.USERNAME}} #${{ secrets.DOCKER_USERNAME }}
+        username: ${{ secrets.DOCKER_USERNAME }} #${{env.USERNAME}} 
         password: ${{ secrets.DOCKER_PASSWORD }}
+
+    - name: DOCKER push
+      run: docker push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPOSITORY }}

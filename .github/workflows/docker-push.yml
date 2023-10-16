@@ -11,8 +11,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    env:
-      DOCKER: ${{ secrets.DOCKER }}
+
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 17
@@ -29,7 +28,7 @@ jobs:
       run: ./gradlew clean build
 
     - name: Build the Docker image
-      run: docker build -t testwoman/spring-test .
+      run: docker build -t ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPOSITORY }} .
     - name: Docker Login
       uses: docker/login-action@v3.0.0
       
